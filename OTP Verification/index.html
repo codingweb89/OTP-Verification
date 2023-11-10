@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+</head>
+<body> 
+
+<div class="container">
+    <img src="verified.png" alt="">
+    <span>Enter OTP Code</span>
+    <div class="inputs">
+        <input maxlength="1">
+        <input maxlength="1">
+        <input maxlength="1">
+        <input maxlength="1">
+        <!-- <input maxlength="1"> -->
+    </div>
+    <button>Sumbit</button>
+</div>
+
+<script>
+
+const inputs = document.querySelector(".inputs");
+const allInputs = inputs.querySelectorAll("input");
+
+
+allInputs.forEach(ini => {
+    ini.addEventListener("input", e => {
+        if(e.target.value.length === 1) {
+            e.target.nextElementSibling.focus();
+        }
+    })
+
+    ini.addEventListener("keydown", e => {
+        if(e.key === "Backspace") {
+            e.target.value = "";
+            e.target.previousElementSibling.focus();
+        }
+    })
+})
+</script>
+
+</body>
+</html>
